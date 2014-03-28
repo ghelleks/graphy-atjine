@@ -1,5 +1,5 @@
 /*
-Theme Name: Graphy for Dave and Gunnar
+Theme Name: Graphy for atjine
 Theme URI: http://themegraphy.com/graphy-wordpress-theme/
 Author: Takao Utsumi
 Author URI: http://themegraphy.com/
@@ -9,41 +9,43 @@ License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: white, light, white, one-column, two-columns, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 Template: graphy
-Text Domain: graphy-dgshow
 */
 
 @import url("../graphy/style.css");
+@import url("/files/lora/stylesheet.css");
+@import url("/files/bitter/stylesheet.css");
 
-header h1 {
-	clear: none;
+img.attachment-post-thumbnail {
+	max-width: 80%;
 }
 
-div.entry-summary {
-	clear: both;
+.site-branding,
+.site-content,
+.footer-widget,
+.site-info {
+        max-width: 600px;
+        margin: 0 auto;
 }
 
-/* make the thumbnails circular */
-div.post-thumbnail {
-	display: inline-block;
-	float: left;
-	margin-left: 20px;
-	margin-right: 20px;
-	width: 150px;
-	height: 150px;
-	border-radius: 75px;
-	-webkit-border-radius: 75px;
-	-moz-border-radius: 75px;
-	background-size: 150px;
-}
-div.post-thumbnail img {
-	opacity: 0;
-	filter: alpha(opacity=0);
-}
-
-/* undo wierd behavior from parent style */
-@media screen and (min-width: 960px) {
-        .no-sidebar .post-thumbnail {
-                margin-left: 20px;
-                margin-right: 20px;
+@media screen and (min-width: 1180px) {
+        .has-sidebar .content-area {
+                width: 600px;
         }
 }
+
+/* Show Title for special formats  */
+.format-aside .entry-title,
+.format-image .entry-title,
+.format-link .entry-title,
+.format-quote .entry-title {
+        display: block;
+}
+
+.continue-reading {
+	display: none;
+}
+
+.site-description {
+	padding-bottom: 20px;
+}
+

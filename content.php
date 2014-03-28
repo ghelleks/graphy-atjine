@@ -6,14 +6,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php if ( has_post_thumbnail() && ! is_search() ): ?>
-		<div class="post-thumbnail" style="background: url('<?php $thumb_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail'); echo $thumb_url[0]; ?>') no-repeat;">
+		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+		<?php graphy_header_meta(); ?>
+		<?php if ( has_post_thumbnail() && ! is_search()): ?>
+		<div class="post-thumbnail"> 
 			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
 		</div>
 		<?php endif; ?>
-		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-		<?php graphy_header_meta(); ?>
-
 	</header><!-- .entry-header -->
 	<?php if ( 'content' == get_theme_mod( 'graphy_content' ) && ! ( is_search() || is_archive() ) ) : ?>
 	<div class="entry-content">
