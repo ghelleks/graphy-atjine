@@ -14,7 +14,15 @@
 		</div>
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-	<?php if ( 'content' == get_theme_mod( 'graphy_content' ) && ! ( is_search() || is_archive() ) ) : ?>
+	<?php if ( 
+			(
+				'content' == get_theme_mod( 'graphy_content' ) 
+				&& ! ( is_search() || is_archive() ) 
+			)
+			|| ( 'quote' === get_post_format() )
+			|| ( 'video' === get_post_format() )
+		) : 
+	?>
 	<div class="entry-content">
 		<?php the_content( __( '<span class="continue-reading">Continue reading &rarr;</span>', 'graphy' ) ); ?>
 		<?php wp_link_pages( array(	'before' => '<div class="page-links">' . __( 'Pages:', 'graphy' ), 'after'  => '</div>', ) ); ?>
