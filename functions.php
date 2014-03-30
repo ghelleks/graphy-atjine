@@ -5,15 +5,8 @@
  */
 function ghostery_atjine_replace_fonts() {
 
-    wp_deregister_style( array('graphy-fonts', 'open-sans') );
-    wp_dequeue_style( array('graphy-fonts', 'open-sans') );
-
-    /*
-     * must replace with our own, because opensans has dependencies in the admin panel
-     * http://wordpress.org/support/topic/turning-off-open-sans-for-the-38-dashboard
-     */
-    wp_register_style( 'open-sans', '/files/opensans_regular_roman/stylesheet.css');
-    wp_enqueue_style( 'open-sans' );
+    wp_deregister_style( array('graphy-fonts') );
+    wp_dequeue_style( array('graphy-fonts') );
 
     wp_register_style( 'graphy-atjine-lora', '/files/lora/stylesheet.css');
     wp_enqueue_style( 'graphy-atjine-lora' );
