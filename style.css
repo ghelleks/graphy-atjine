@@ -41,8 +41,15 @@ img.attachment-post-thumbnail {
         display: block;
 }
 
+/* Don't show "read more" on images */
 .format-image .continue-reading {
 	display: none;
+}
+
+/* Show Images centered */
+.format-image .entry-content img {
+	margin: 32px auto;
+	display: block;
 }
 
 .site-description {
