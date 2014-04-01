@@ -12,8 +12,6 @@ Template: graphy
 */
 
 @import url("../graphy/style.css");
-@import url("/files/lora/stylesheet.css");
-@import url("/files/bitter/stylesheet.css");
 
 img.attachment-post-thumbnail {
 	max-width: 80%;
