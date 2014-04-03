@@ -17,7 +17,11 @@ img.attachment-post-thumbnail {
 	max-width: 80%;
 }
 
-.site-branding,
+.site-branding {
+        max-width: 800px;
+        margin: 0 auto;
+}
+
 .site-content,
 .footer-widget,
 .site-info {
