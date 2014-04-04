@@ -13,6 +13,16 @@ Template: graphy
 
 @import url("../graphy/style.css");
 
+/* hide headers for tweets */
+article.format-status .entry-header {
+	display: none;
+}
+
+article.format-status .entry-content {
+	text-align: center;
+	max-width: 500px; // 'cause twitter.
+}
+
 img.attachment-post-thumbnail {
 	max-width: 80%;
 }
