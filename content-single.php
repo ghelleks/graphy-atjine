@@ -13,6 +13,7 @@
 
 	<div class="entry-content">
 <?php  /* Here comes the twitter hack that is insanely specific to me, but mostly harmless */
+	/* Gunnar: listen. Make this a content filter. */
 	if ( get_post_format() === 'status' )   {
 		$tweet_id = get_post_custom_values('tweet_id');
 		if ($tweet_id) {
