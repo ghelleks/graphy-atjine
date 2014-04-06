@@ -1,5 +1,10 @@
 <?php
 
+/* get rid of the silly blog title in the page title */
+function graphy_wp_title( $title, $sep ) {
+	return $title;
+}
+
 /* 
  * Make the fonts come from us, not Google
  */
