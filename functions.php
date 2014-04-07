@@ -1,5 +1,40 @@
 <?php
 
+/**
+ * Creates a nicely formatted and more specific title element text
+ * for output in head of document, based on current view.
+ *
+ * @param string $title Default title text for current view.
+ * @param string $sep Optional separator.
+ * @return string Filtered title.
+ */
+function graphy_wp_title( $title, $sep ) {
+	global $page, $paged;
+
+	if ( is_feed() )
+		return $title;
+
+	// Add the site name.
+	// $title .= get_bloginfo( 'name' );
+
+	// remove sep character
+	$title = str_replace(" $sep ", "", $title);
+
+	// Add the site description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( is_home() || is_front_page() ) {
+		$title = get_bloginfo( 'name' );
+		if ( $site_description )
+			$title .= " $sep $site_description";
+	}
+
+	// Add a page number if necessary.
+	if ( $paged >= 2 || $page >= 2 )
+		$title .= " $sep " . sprintf( __( 'Page %s', 'graphy' ), max( $paged, $page ) );
+
+	return $title;
+}
+
 /* 
  * Make the fonts come from us, not Google
  */
