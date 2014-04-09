@@ -13,6 +13,11 @@ Template: graphy
 
 @import url("../graphy/style.css");
 
+/* hide silly G+ profile */
+div.sharedaddy {
+	display: none;
+}
+
 /* hide headers for tweets */
 article.format-status .entry-header {
 	display: none;
