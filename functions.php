@@ -1,5 +1,21 @@
 <?php
 
+/*
+Plugin Name: WPSE53245 - Set ...from Twitter category posts as status
+Plugin URI: http://http://wordpress.stackexchange.com/questions/53235
+Description: "...from Twitter" category posts in "Status" format
+Version: 0.1
+Author: Ashfame
+Author URI: http://wordpress.stackexchange.com/users/1521/ashfame
+*/
+
+function atjine_set_twitter_post_format( $postID ) {
+	if ( has_post_format( 'status', $postID ) || !has_term( 'from-twitter', 'category', $postID ) )
+            return;
+	set_post_format( $postID, 'status' );
+}
+add_action( 'save_post', 'atjine_set_twitter_post_format' );
+
 /**
  * Creates a nicely formatted and more specific title element text
  * for output in head of document, based on current view.
@@ -8,7 +24,7 @@
  * @param string $sep Optional separator.
  * @return string Filtered title.
  */
-function graphy_wp_title( $title, $sep ) {
+function graphy_atjine_wp_title( $title, $sep ) {
 	global $page, $paged;
 
 	if ( is_feed() )
@@ -17,7 +33,7 @@ function graphy_wp_title( $title, $sep ) {
 	// Add the site name.
 	// $title .= get_bloginfo( 'name' );
 
-	// remove sep character
+	// get ride of dangling separator
 	$title = str_replace(" $sep ", "", $title);
 
 	// Add the site description for the home/front page.
@@ -34,6 +50,15 @@ function graphy_wp_title( $title, $sep ) {
 
 	return $title;
 }
+/* now actually install the filter, which is a mess */
+add_action('after_setup_theme','atjine_override_wp_title_filter');
+
+function atjine_override_wp_title_filter() {
+	remove_filter( 'wp_title', 'graphy_wp_title', 10 );
+	add_filter( 'wp_title', 'graphy_atjine_wp_title', 5, 2 );
+}
+
+
 
 /* 
  * Make the fonts come from us, not Google
