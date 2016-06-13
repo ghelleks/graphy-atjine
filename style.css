@@ -73,3 +73,6 @@ img.attachment-post-thumbnail {
 	padding-bottom: 20px;
 }
 
+article .cat-links {
+  display: none;
+}
